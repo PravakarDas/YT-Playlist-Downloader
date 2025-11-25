@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YT Playlist Downloader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+<body>
+<div class="page">
+    <div class="card">
+        <header class="header">
+            <div class="title-block">
+                <h1>YT Playlist Downloader</h1>
+                <p class="subtitle">
+                    Paste a playlist URL, pick MP4 or MP3, select videos, and get a ZIP download.
+                    All processing happens on the server. Your data is cleared on refresh or after 3 hours.
+                </p>
+            </div>
+        </header>
+
+        <main>
+            <!-- Step 1: Playlist URL -->
+            <section class="section">
+                <form id="playlist-form" class="form-panel">
+                    <label for="playlist-url">Playlist URL</label>
+                    <div class="input-row">
+                        <input
+                            type="url"
+                            id="playlist-url"
+                            placeholder="https://www.youtube.com/playlist?list=..."
+                            required
+                        />
+                        <button type="submit" id="load-btn" class="btn primary">
+                            Load
+                        </button>
+                    </div>
+                </form>
+                <div id="status" class="status"></div>
+            </section>
+
+            <!-- Step 2: Options + List -->
+            <section id="options-section" class="section hidden">
+                <div class="controls-row">
+                    <div class="control">
+                        <label for="format-select">Format</label>
+                        <select id="format-select">
+                            <option value="mp4">MP4 · Video</option>
+                            <option value="mp3">MP3 · Audio only</option>
+                        </select>
+                    </div>
+                    <div class="control">
+                        <label for="quality-select">Quality</label>
+                        <select id="quality-select">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="playlist-header">
+                    <div>
+                        <div id="playlist-title" class="playlist-title"></div>
+                        <p class="playlist-meta" id="playlist-meta"></p>
+                    </div>
+                    <div class="list-actions">
+                        <button type="button" id="select-all-btn" class="btn ghost">
+                            Select all
+                        </button>
+                        <button type="button" id="clear-all-btn" class="btn ghost">
+                            Clear
+                        </button>
+                        <button type="button" id="download-btn" class="btn primary">
+                            Download selected
+                        </button>
+                    </div>
+                </div>
+
+                <div id="videos-container" class="videos-container"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <span class="footer-text">
+                Built with ❤️ by <strong>Pravakar Das</strong>
+            </span>
+            <span class="footer-links">
+                <a href="https://github.com/PravakarDas" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+                <span class="dot">·</span>
+                <a href="https://www.linkedin.com/in/pravakarda" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+            </span>
+        </footer>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

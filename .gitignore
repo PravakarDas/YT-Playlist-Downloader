@@ -1,0 +1,32 @@
+#Virtual environment folders
+venv/
+.env/
+env/
+.venv/
+
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Downloaded video/audio files (server-side output)
+downloads/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor folders
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Archive files created at runtime
+*.zip
+
+# Environment files
+.env
